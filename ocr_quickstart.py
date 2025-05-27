@@ -6,6 +6,8 @@ import base64
 from pathlib import Path
 from typing import Dict, Any
 
+from dotenv import load_dotenv
+
 from mistralai import Mistral
 
 
@@ -59,6 +61,7 @@ def save_result(result: Dict[str, Any], output_dir: Path) -> None:
 
 
 def main(input_dir: Path, output_dir: Path, api_key: str) -> None:
+    input_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
     client = Mistral(api_key=api_key)
 
@@ -86,6 +89,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
+    load_dotenv()
     api_key = os.getenv("MISTRAL_API_KEY")
     if not api_key:
         raise SystemExit("MISTRAL_API_KEY environment variable not set")
