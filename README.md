@@ -1,4 +1,5 @@
 # Mistral Document AI Quickstart
+※codexを用いたコーディングのテストです。
 
 This repository contains a small helper script to process PDF files using the
 [Mistral Document AI](https://docs.mistral.ai/capabilities/OCR/document_ai_overview/)
